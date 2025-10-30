@@ -1,28 +1,30 @@
-# Bonjour
-# Mon programme est pour calculer le PGCD avec le langage Python
-#la premiere chose que le programme:
-# il va l'afficher a utilisateur combien de  nombre de couple veut calculer
+#include <stdio.h>
+int pgcd(int a, int b) {
+    int r;
+    while (b != 0) {
+        r = a % b;
+        printf("%d = %d *%d + %d\n",a,b,a/b,r);
+        a = b;
+        b = r;
+    }
+    return a;
+}
 
-def pgcd(a, b):
-    print(f"\nCalcul du PGCD de {a} et {b} :")
-    etape = 1
-    while b != 0:
-        q = a // b  # quotient
-        r = a % b   # reste
-        print(f"Étape {etape} : {a} = {b} × {q} + {r}")
-        a, b = b, r
-        etape += 1
-    print(f"→ Le PGCD est {a}")
-    return a
+int main() {
+    int a, b, c, resultat;
 
+    printf("Entrez les trois nombres: ");
+    scanf("%d %d %d", &a,&b,&c);
 
-#Programme principal
-nb_couples = int(input("Combien de couples de nombres souhaitez-vous calculer ? "))
+    resultat = pgcd(pgcd(a, b), c);
 
-for i in range(1, nb_couples + 1):
-    print(f"\n--- Couple n°{i} ---")
-    x = int(input("Entrez le premier nombre : "))
-    y = int(input("Entrez le deuxième nombre : "))
-    pgcd(x, y)
+    printf("\nLe PGCD de %d, %d et %d est : %d\n", a, b, c, resultat);
 
-print("\n✅ Tous les calculs de PGCD sont terminés !")
+    if (resultat == 1)
+        printf("Les trois nombres sont premiers entre eux.\n");
+    else
+        printf("Les trois nombres ne sont pas premiers entre eux.\n");
+
+    return 0;
+}
+
