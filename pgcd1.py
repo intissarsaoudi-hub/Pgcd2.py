@@ -31,7 +31,7 @@ int main() {
         printf("→ PGCD(%d, %d) = %d\n", a0, b0, a);
     }
 
-    printf("\n✅ Le PGCD de ces %d nombres est : %d\n", n, a);
+    printf("\n Le PGCD de ces %d nombres est : %d\n", n, a);
 
     // ====== PARTIE 2 : Equation Diophantienne ax + by = c ======
     printf("\n=== Resolution de l'equation ax + by = c ===\n");
@@ -63,7 +63,7 @@ int main() {
     int y = y0;
 
     if (C % d != 0) {
-        printf("\n❌ Pas de solution entiere car %d ne divise pas %d.\n", d, C);
+        printf("\n Pas de solution entiere car %d ne divise pas %d.\n", d, C);
         return 0;
     }
 
@@ -73,10 +73,11 @@ int main() {
     int alpha = B / d;
     int beta = -A / d;
 
-    printf("\n✅ Il existe des solutions entieres car %d divise %d.\n", d, C);
+    printf("\n Il existe des solutions entieres car %d divise %d.\n", d, C);
     printf("Solution particuliere : (x, y) = (%d, %d)\n", xp, yp);
     printf("Solutions generales : (x, y) = (%d + %d*k, %d + %d*k), k ∈ Z\n",
            xp, alpha, yp, beta);
 
     return 0;
 }
+
